@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="barra">
+    <ion-grid>
+      <div class="center-container">
+        <ion-col size="auto">
+          <img src="assets/logo-duoc.png" class="logo" />
+        </ion-col>
+      </div>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+  <div class="center-container">
+    <ion-col size="auto">
+      <img class="imagen" src="assets/sedes-campus.jpg" />
+    </ion-col>
+  </div>
+
+  <ion-label class="titulo"> Ingrese sus datos </ion-label>
+
+  <div class="button-container">
+    <ion-item class="line-input" lines="none">
+      <ion-input
+        [(ngModel)]="mdl_mail"
+        label="Correo"
+        labelPlacement="floating"
+        type="email"
+      ></ion-input>
+    </ion-item>
+    <ion-item class="line-input" lines="none">
+      <ion-input
+        [(ngModel)]="mdl_pass"
+        label="Contraseña"
+        labelPlacement="floating"
+        type="password"
+      ></ion-input>
+    </ion-item>
+
+    <ion-button (click)="login()">INGRESAR</ion-button>
+    <ion-button (click)="navegarCrearUsuario()">Crear Cuenta</ion-button>
+  </div>
+
+  <div *ngIf="loadingVisible" class="loading-message">
+    Cargando, por favor espere...
+  </div>
+
+  <div *ngIf="warningVisible" class="item-warning">{{ warningMessage }}</div>
+</ion-content>

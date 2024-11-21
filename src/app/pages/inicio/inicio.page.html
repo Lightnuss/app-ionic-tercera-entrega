@@ -1,0 +1,69 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="barra">
+    
+    <ion-grid>
+      <div class="center-container">
+        <ion-col size="auto">
+          <img src="assets/logo-duoc.png" class="logo" />
+          
+        </ion-col>
+      </div>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<!--
+<ion-toolbar  class="barrita">
+  <ion-title class="title"> Inicio </ion-title>
+</ion-toolbar>-->
+
+<ion-content [fullscreen]="true" class="background">
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <!-- Avatar para la foto de perfil -->
+      <ion-avatar>
+        <img src="assets/foto-de-perfil.jpg" alt="Foto de perfil" />
+      </ion-avatar>
+    </ion-card-header>
+
+    <ion-card-content class="custom-card-content">
+      <h2>Hola, {{ nombre }} {{ apellido }}</h2>
+      <p>Bienvenido a tu perfil.</p>
+      <ion-button (click)="cambioPass()">Cambiar Contraseña</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="sede">
+    <img alt="PAO" src="assets/biblioteca.jpg" />
+    <ion-card-header>
+      <ion-card-subtitle class="card-subtitle"
+        >Biblioteca DuocUC</ion-card-subtitle
+      >
+    </ion-card-header>
+    <ion-card-content>
+      Posteriomente se configurara para realizar una función
+    </ion-card-content>
+  </ion-card>
+
+  <ion-footer class="fixed-footer">
+    <ion-toolbar>
+      <div class="footer-icons">
+        <ion-tab-button>
+          <ion-icon name="home-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="sedes()">
+          <ion-icon name="map-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="leerQR()">
+          <ion-icon name="qr-code-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="asistencia()">
+          <ion-icon name="bar-chart-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="cerrarSesion()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-tab-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar class="barra">
+    <ion-grid>
+      <div class="center-container">
+        <ion-col size="auto">
+          <img src="assets/logo-duoc.png" class="logo" />
+        </ion-col>
+      </div>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="background">
+  <ion-list>
+    <!-- Iteramos sobre la lista de sedes obtenida en la función -->
+    <ion-item *ngFor="let sede of lista_sedes">
+      <ion-card class="custom-card">
+        <img [src]="sede.imagen" alt="Imagen de la sede" />
+        
+        <ion-card-header>
+          <ion-card-title>{{ sede.nombre }}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="custom-card-content">
+          <p><strong>Dirección:</strong> {{ sede.direccion }}</p>
+          <p><strong>Teléfono:</strong> {{ sede.telefono }}</p>
+          <p>
+            <strong>Horario de atención:</strong> {{ sede.horario_atencion }}
+          </p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+
+  <ion-footer class="fixed-footer">
+    <ion-toolbar>
+      <div class="footer-icons">
+        <ion-tab-button (click)="inicio()">
+          <ion-icon name="home-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button>
+          <ion-icon name="map-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="asistencia()">
+          <ion-icon name="bar-chart-outline"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="cerrarSesion()">
+          <ion-icon name="log-out-outline"></ion-icon>
+        </ion-tab-button>
+      </div>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>
