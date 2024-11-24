@@ -16,7 +16,7 @@
 
     <!-- Iteramos sobre la lista de ramos obtenida en la función -->
     <ion-item *ngFor="let ramos of lista_ramos">
-      <ion-card>
+      <ion-card class="custom-card">
         <ion-card-header>
           <ion-card-title>{{ ramos.cursoNombre }}</ion-card-title>
         </ion-card-header>
@@ -25,6 +25,7 @@
           <p><strong>Sigla: </strong> {{ ramos.cursoSigla }}</p>
           <p><strong>Presente:</strong> {{ ramos.presente }}</p>
           <p><strong>Ausente:</strong> {{ ramos.ausente }}</p>
+          <p><strong>Porcentaje de Asistencia:</strong> {{ramos.porcentaje}}%</p>
         </ion-card-content>
       </ion-card>
     </ion-item>

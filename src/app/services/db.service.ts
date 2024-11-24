@@ -103,13 +103,14 @@ export class DbService {
   async obtenerUsuarioLogueado(correo: string) {
     await this.abrirDB();
     let respuesta = await this.db?.executeSql(
-      'SELECT NOMBRE, APELLIDO FROM USUARIO WHERE MAIL = ?',
+      'SELECT NOMBRE, APELLIDO, CARRERA FROM USUARIO WHERE MAIL = ?',
       [correo]
     );
 
     let objeto: any = {};
     objeto.nombre = respuesta.rows.item(0).NOMBRE;
     objeto.apellido = respuesta.rows.item(0).APELLIDO;
+    objeto.carrera = respuesta.rows.item(0).CARRERA;
 
     return objeto;
   }
@@ -127,7 +128,7 @@ export class DbService {
     }
   }
 
-  obtenerSesion() {
+  async obtenerSesion() {
     return this.sqlite
       .create({
         name: 'datos.db',

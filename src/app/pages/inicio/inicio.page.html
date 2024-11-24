@@ -17,7 +17,7 @@
   <ion-title class="title"> Inicio </ion-title>
 </ion-toolbar>-->
 
-<ion-content [fullscreen]="true" class="background">
+<ion-content [fullscreen]="true" class="background ion-padding" >
   <ion-card class="custom-card">
     <ion-card-header>
       <!-- Avatar para la foto de perfil -->
@@ -27,43 +27,44 @@
     </ion-card-header>
 
     <ion-card-content class="custom-card-content">
-      <h2>Hola, {{ nombre }} {{ apellido }}</h2>
+      <h2>Hola, {{ nombre }}</h2>
       <p>Bienvenido a tu perfil.</p>
       <ion-button (click)="cambioPass()">Cambiar Contraseña</ion-button>
     </ion-card-content>
   </ion-card>
 
-  <ion-card class="sede">
+  <ion-card class="sede custom-card">
     <img alt="PAO" src="assets/biblioteca.jpg" />
     <ion-card-header>
       <ion-card-subtitle class="card-subtitle"
-        >Biblioteca DuocUC</ion-card-subtitle
-      >
+        >Carrera</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      Posteriomente se configurara para realizar una función
+      <h2>{{ carrera }}</h2>
     </ion-card-content>
   </ion-card>
 
-  <ion-footer class="fixed-footer">
-    <ion-toolbar>
-      <div class="footer-icons">
-        <ion-tab-button>
-          <ion-icon name="home-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button (click)="sedes()">
-          <ion-icon name="map-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button (click)="leerQR()">
-          <ion-icon name="qr-code-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button (click)="asistencia()">
-          <ion-icon name="bar-chart-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button (click)="cerrarSesion()">
-          <ion-icon name="log-out-outline"></ion-icon>
-        </ion-tab-button>
-      </div>
-    </ion-toolbar>
-  </ion-footer>
+
 </ion-content>
+
+<ion-footer  collapse="fade">
+  <ion-toolbar>
+    <div class="footer-icons">
+      <ion-tab-button>
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="sedes()">
+        <ion-icon name="map-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="leerQR()">
+        <ion-icon name="qr-code-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="asistencia()">
+        <ion-icon name="bar-chart-outline"></ion-icon>
+      </ion-tab-button>
+      <ion-tab-button (click)="cerrarSesion()">
+        <ion-icon name="log-out-outline"></ion-icon>
+      </ion-tab-button>
+    </div>
+  </ion-toolbar>
+</ion-footer>

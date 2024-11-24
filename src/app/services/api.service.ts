@@ -55,8 +55,7 @@ export class ApiService {
       .pipe();
   }
 
-  obtenerAsistencia() {
-    let correo = this.db.obtenerCorreoLogueado();
+  obtenerAsistencia(correo: string) {
     return this.http
     .get(this.api_duoc + '/api_duoc/usuario/asistencia_obtener?correo=' + correo)
     .pipe()

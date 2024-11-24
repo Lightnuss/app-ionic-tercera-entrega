@@ -13,7 +13,6 @@ export class SplashPage implements OnInit {
   ngOnInit() {
     this.db.crearTablaUsuario();
     this.db.sesionAbierta();
-    this.db.crearTablaAsistencia();
 
     setTimeout(async () => {
       let cantidadSesion = await this.db.obtenerCantidadSesion();

@@ -20,30 +20,10 @@ export class AsistenciaPage implements OnInit {
   constructor(private db: DbService, private  router: Router, private api: ApiService) { }
 
   async ngOnInit() {
+    this.mdl_correo= await this.db.obtenerCorreoLogueado();
     this.obtenerAsistencia();
     const data = await this.db.obtenerSesion();
     this.mdl_correo = data.MAIL;
-  }
-
-  async registrarAsistencia() {
-    try {
-      let datos = this.api.marcarAsistencia(
-        this.mdl_sigla,
-        this.mdl_correo,
-        this.mdl_fecha
-      )
-      
-      // Esperar respuesta de la API
-      let respuesta = await lastValueFrom(datos);
-      let json_texto = JSON.stringify(respuesta);
-      let json = JSON.parse(json_texto);
-
-      if (json.status == 'OK') {
-        alert('Asistencia guardada correctamente')
-        ;}
-    } catch (e) {
-      console.error('Un error', e)
-    }
   }
 
   async cerrarSesion() {
@@ -75,7 +55,7 @@ export class AsistenciaPage implements OnInit {
   async obtenerAsistencia() {
     this.lista_ramos = []; //inicializar lista vacia para limpiar cada vez que se ejecute
     //estoy cambiando de "data" a "datos" para probrar
-    let datos = this.api.obtenerAsistencia();
+    let datos = this.api.obtenerAsistencia(this.mdl_correo);
     let response = await lastValueFrom(datos); //se espera que salga el ultimo dato de los ramos
 
     let jsonTxt = JSON.stringify(response); //json toma los objetos y el metodo stringify convierte a texto la respuesta
@@ -88,8 +68,11 @@ export class AsistenciaPage implements OnInit {
       ramos.presente = json[0][x].presente;
       ramos.ausente = json[0][x].ausente;
 
+      ramos.porcentaje = ramos.presente * 100 / 5;
+
       this.lista_ramos.push(ramos);
     }
+    
   }
 
   almacenarQR() {
