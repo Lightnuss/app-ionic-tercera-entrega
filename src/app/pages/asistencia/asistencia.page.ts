@@ -69,13 +69,16 @@ export class AsistenciaPage implements OnInit {
       ramos.ausente = json[0][x].ausente;
 
       ramos.porcentaje = ramos.presente * 100 / 5;
+      ramos.estado_asistencia = 'Reprobado';
+
+      if(ramos.porcentaje >= 75) {
+        ramos.estado_asistencia = 'Aprobado';
+      }
+
 
       this.lista_ramos.push(ramos);
     }
     
   }
 
-  almacenarQR() {
-
-  }
 }
